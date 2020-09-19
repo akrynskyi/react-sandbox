@@ -9,4 +9,9 @@ export const Button = styled.button`
   font-family: inherit;
   width: ${({grow}) => grow ? '100%' : 'auto'};
   background-color: ${({bgc}) => bgc ? bgc : '#000'};
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.75;
+  }
 `;

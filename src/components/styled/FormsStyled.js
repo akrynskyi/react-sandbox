@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import { formWidth } from './vars';
 
 export const Form = styled.form`
-  min-width: 400px;
+  min-width: ${formWidth};
   padding: 25px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -18,7 +19,7 @@ export const FormHeader = styled.div`
 
 export const FormBody = styled.div`
   flex-grow: 1;
-  margin-bottom: 35px;
+  margin-bottom: 25px;
 `;
 
 export const FormFooter = styled.div`
@@ -41,7 +42,8 @@ export const Input = styled.input`
   min-height: 40px;
   padding: 10px 15px;
   border-radius: 4px;
-  border: 1px solid #ccc;
+  border: ${({invalid}) => invalid ? '2px solid rgb(238, 81, 81)' : '1px solid #ccc'};
+  box-shadow: ${({invalid}) => invalid ? '0 0 5px rgb(238, 81, 81)' : 'none'};
   transition: all .2s ease-in-out;
 
   &:focus {
@@ -52,13 +54,12 @@ export const Input = styled.input`
 
 export const ControlErrors = styled.div`
   width: 100%;
-  min-height: 40px;
-  padding: 10px 15px;
   border-radius: 4px;
   font-size: 12px;
   font-weight: 500;
   margin-top: 10px;
   display: flex;
   align-items: center;
-  background: #ccc;
+  background: transparent;
+  padding: 0px 4px;
 `;

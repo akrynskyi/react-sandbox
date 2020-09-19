@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { formWidth } from './vars';
 
 export const Container = styled.div`
   width: 100%;
@@ -9,4 +10,10 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: ${({column}) => column ? 'column' : 'row'};
+`;
+
+export const Box = styled.div`
+  margin: 30px 0px;
+  width: ${({w}) => w ? w : formWidth};
 `;

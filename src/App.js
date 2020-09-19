@@ -16,7 +16,7 @@ class App extends Component {
     return (
       <>
         <GlobalStyles />
-        <Container minheight="100vh">
+        <Container minheight="100vh" column>
           <LoginForm />
         </Container>
       </>

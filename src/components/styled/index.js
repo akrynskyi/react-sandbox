@@ -1,6 +1,7 @@
 import { GlobalStyles } from './GlobalStyles';
-import { Container } from './ContainersStyled';
+import { Container, Box } from './ContainersStyled';
 import { Button } from './ButtonsStyled';
+import { Divider, DividerText } from './SharedStyled';
 import { 
   Form, 
   FormHeader, 
@@ -23,5 +24,8 @@ export {
   ControlLabel, 
   Input, 
   ControlErrors,
-  Button
+  Button,
+  Box,
+  Divider,
+  DividerText,
 };
