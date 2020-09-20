@@ -15,7 +15,6 @@ export const InputField = (props) => {
     dirty,
     valid,
     errors,
-    validation,
     onChange
   } = props;
 
@@ -36,11 +35,7 @@ export const InputField = (props) => {
       {
         hasErrors
         ? <ControlErrors>
-            {
-              Object
-                .keys(validation)
-                .map((key) => errors[key])
-            }
+            {Object.values(errors)}
           </ControlErrors>
         : null
       }

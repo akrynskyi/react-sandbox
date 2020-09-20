@@ -1,6 +1,13 @@
 import is from 'is_js';
 
-export function validateFormControl(value, validation, label) {
+export function validateFormControl(control, validators = null) {
+  const { 
+    value, 
+    validation, 
+    label, 
+    controlName 
+  } = control;
+
   let valid = true;
   let result = {
     valid,
@@ -45,6 +52,16 @@ export function validateFormControl(value, validation, label) {
         minlenth: `❗ ${label} should be at least ${validation.minlenth} characters, current length is ${value.length}`
       }
     }
+  }
+
+  if (validators) {
+    validators.forEach(({shouldValidate, validatorFn}) => {
+      const controlToValidate = shouldValidate === controlName;
+
+      if (controlToValidate && value) {
+        result = validatorFn(control);
+      }
+    });
   }
 
   return result;

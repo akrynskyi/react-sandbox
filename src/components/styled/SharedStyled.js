@@ -26,3 +26,24 @@ export const DividerText = styled.span`
   color: #424242;
   z-index: 2;
 `;
+
+export const Text = styled.span`
+  font-size: 14px;
+  margin-right: 8px;
+`;
+
+export const Row = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: ${({justify}) => justify ? justify : 'flex-start'};
+  margin-top: ${({mt}) => mt ? mt : '30px'};
+`;
+
+export const PrintCode = styled.pre`
+  color: #fdd835;
+  padding: 15px;
+  font-size: 14px;
+  line-height: 1.4;
+  border-radius: 4px;
+  background-color: #212121;
+`;

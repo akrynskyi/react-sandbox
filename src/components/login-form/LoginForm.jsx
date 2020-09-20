@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import { FormControl, validateFormControl, validateForm } from '../../form-utils';
+import { 
+  FormControl, 
+  validateFormControl, 
+  validateForm, 
+  getFormValue 
+} from '../../form-utils';
 
 import { InputField } from '../input-field';
 import { 
@@ -11,6 +16,7 @@ import {
   Box,
   Divider,
   DividerText,
+  PrintCode
 } from '../styled';
 
 export class LoginForm extends Component {
@@ -20,6 +26,8 @@ export class LoginForm extends Component {
 
     this.state = {
       formValid: false,
+      formValue: null,
+      formSubmitted: false,
       formControls: {
         email: new FormControl('', 'Email', 'email', { required: true, email: true }),
         password: new FormControl('', 'Password', 'password', { required: true }),
@@ -27,13 +35,20 @@ export class LoginForm extends Component {
     };
   }
 
+  onSubmit(formControls) {
+    return (e) => {
+      e.preventDefault();
+      const formValue = getFormValue(formControls);
+      this.setState({ formValue, formSubmitted: true });
+    }
+  }
+
   handleControlChange(controlName, formControls) {
     return ({target}) => {
       const { value } = target;
       const updatedFormControls = {...formControls};
       const formControl = updatedFormControls[controlName];
-      const { validation, label } = formControl;
-      const { valid, errors } = validateFormControl(value, validation, label);
+      const { valid, errors } = validateFormControl({...formControl, controlName, value});
 
       const updatedFormControl = {
         ...formControl,
@@ -48,17 +63,24 @@ export class LoginForm extends Component {
 
       this.setState({
         formValid,
+        formSubmitted: false,
         formControls: updatedFormControls,
       });
     }
   }
 
   render() {
-    const { formValid, formControls } = this.state;
+    const { 
+      formValid, 
+      formControls, 
+      formValue, 
+      formSubmitted 
+    } = this.state;
+    const { toggleForm } = this.props;
 
     return (
       <>
-        <Form>
+        <Form onSubmit={this.onSubmit(formControls)}>
           <FormHeader>
             Sign in
           </FormHeader>
@@ -78,14 +100,17 @@ export class LoginForm extends Component {
           <FormFooter>
             <Button 
               grow
-              bgc="#ffa726"
+              bgc="#ff9100"
               disabled={!formValid}
             >
               Sign in
             </Button>
           </FormFooter>
         </Form>
-        <Box>
+        <Box 
+          mt="30px" 
+          mb="30px"
+        >
           <Divider>
             <DividerText>
               Don't have an account?
@@ -93,9 +118,19 @@ export class LoginForm extends Component {
           </Divider>
           <Button 
             grow
+            bgc="#212121"
+            onClick={toggleForm}
           >
             Create account
           </Button>
+        </Box>
+        <Box mt="30px">
+          {
+            formSubmitted 
+            && <PrintCode>
+                {JSON.stringify(formValue, null, 4)}
+              </PrintCode>
+          }
         </Box>
       </>
     );

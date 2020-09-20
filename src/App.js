@@ -9,15 +9,25 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      register: false,
+    };
   }
 
+  toggleForm = () => this.setState(({register}) => ({register: !register}));
+
   render() {
+    const { register } = this.state;
+    
     return (
       <>
         <GlobalStyles />
         <Container minheight="100vh" column>
-          <LoginForm />
+          {
+            register
+            ? <RegisterForm toggleForm={this.toggleForm} />
+            : <LoginForm toggleForm={this.toggleForm} />
+          }
         </Container>
       </>
     );

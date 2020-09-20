@@ -14,6 +14,7 @@ export const Container = styled.div`
 `;
 
 export const Box = styled.div`
-  margin: 30px 0px;
+  margin-top: ${({mt}) => mt ? mt : 'unset'};
+  margin-bottom: ${({mb}) => mb ? mb : 'unset'};
   width: ${({w}) => w ? w : formWidth};
 `;

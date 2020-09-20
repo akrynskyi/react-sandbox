@@ -1,7 +1,7 @@
 import { GlobalStyles } from './GlobalStyles';
 import { Container, Box } from './ContainersStyled';
-import { Button } from './ButtonsStyled';
-import { Divider, DividerText } from './SharedStyled';
+import { Button, ButtonTransparent } from './ButtonsStyled';
+import { Divider, DividerText, Row, Text, PrintCode } from './SharedStyled';
 import { 
   Form, 
   FormHeader, 
@@ -28,4 +28,8 @@ export {
   Box,
   Divider,
   DividerText,
+  Row,
+  ButtonTransparent,
+  Text,
+  PrintCode
 };
