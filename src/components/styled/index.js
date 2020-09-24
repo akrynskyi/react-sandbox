@@ -1,8 +1,8 @@
 import { GlobalStyles } from './GlobalStyles';
 import { Nav } from './NavStyled';
-import { Container, FlexContainer } from './ContainersStyled';
+import { Container, FlexContainer, GridContainer, LayoutContent } from './ContainersStyled';
 import { Button } from './ButtonsStyled';
-import { Logo } from './SharedStyled';
+import { Logo, Text, ImageCard, Image } from './SharedStyled';
 
 export {
   GlobalStyles,
@@ -11,4 +11,9 @@ export {
   FlexContainer,
   Button,
   Logo,
+  Text,
+  GridContainer,
+  LayoutContent,
+  ImageCard,
+  Image,
 };

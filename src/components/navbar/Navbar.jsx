@@ -4,7 +4,8 @@ import {
   Nav, 
   FlexContainer, 
   Button, 
-  Logo 
+  Logo,
+  Text,
 } from '../styled';
 
 export const Navbar = () => {
@@ -14,8 +15,8 @@ export const Navbar = () => {
         justify="space-between"
       >
         <Logo href="/">
-          <span className="material-icons">landscape</span>
-          <span style={{marginLeft: '5px'}}>Imager</span>
+          <span className="material-icons">camera</span>
+          <Text>mycamerashoot</Text>
         </Logo>
         <Button>
           Sign-in
