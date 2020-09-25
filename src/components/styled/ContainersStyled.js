@@ -26,4 +26,12 @@ export const GridContainer = styled.div`
 
 export const LayoutContent = styled(Container)`
   padding: ${navHeight} 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const Row = styled.div`
+  padding-top: ${({pt}) => pt ? pt : '15px'};
+  padding-bottom: ${({pb}) => pb ? pb : '15px'};
 `;

@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as imagesActions from '../../store/images-state/imagesActions';
+import { Loader } from '../loader';
 
 import { 
   GridContainer, 
   LayoutContent, 
   ImageCard, 
-  Image 
+  Image,
+  Button,
+  Row,
 } from '../styled';
 
 class ImagesGrid extends Component {
@@ -17,35 +20,55 @@ class ImagesGrid extends Component {
   }
 
   componentDidMount() {
-    const { fetchImages } = this.props;
-    fetchImages();
+    this.props.fetchImages();
   }
 
   render() {
-    const { images } = this.props;
+    const { 
+      images, 
+      fetchImages, 
+      initialLoading, 
+      loading 
+    } = this.props;
+
+    const loadMoreButton = (
+      <Button 
+        shadow 
+        load={loading}
+        disabled={loading}
+        onClick={() => fetchImages()}
+      >
+        {loading ? 'Loading...' : 'Load more'}
+      </Button>
+    );
 
     return (
       <LayoutContent>
+        {initialLoading && <Loader />}
         <GridContainer>
           {
-            images.map(({id, urls, alt_description: description, height, width}) => {
+            images.map((image) => {
+              const { id, urls, description, height, width, username } = image;
               const { small } = urls;
               const unit = Math.ceil(height / width);
 
               return (
                 <ImageCard 
                   key={id}
-                  gridRow={`span ${unit}`}
+                  gridRow={unit}
                 >
                   <Image 
                     src={small} 
-                    alt={description}
+                    alt={description || username}
                   />
                 </ImageCard>
               );
             })
           }
         </GridContainer>
+        <Row>
+          {!initialLoading && loadMoreButton}
+        </Row>
       </LayoutContent>
     );
   }

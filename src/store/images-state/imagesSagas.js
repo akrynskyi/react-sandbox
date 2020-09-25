@@ -1,12 +1,15 @@
-import { call, put, takeEvery } from 'redux-saga/effects';
+import { call, put, select, takeEvery } from 'redux-saga/effects';
 import * as imagesActionTypes from './imagesActionTypes';
 import { fetchImagesSuccess, fetchImagesFailure } from './imagesActions';
 
 import { fetchImages } from '../../api/fetchImages';
 
+const getParams = ({ images }) => ({ page: images.page, perPage: images.perPage });
+
 function* requestImages() {
   try {
-    const data = yield call(fetchImages);
+    const { page, perPage } = yield select(getParams);
+    const data = yield call(fetchImages, page, perPage);
     yield put(fetchImagesSuccess(data));
   } catch (error) {
     yield put(fetchImagesFailure(error));

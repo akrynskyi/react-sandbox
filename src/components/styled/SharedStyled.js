@@ -17,11 +17,28 @@ export const Text = styled.span`
 export const ImageCard = styled.div`
   height: 100%;
   position: relative;
-  grid-row: ${({gridRow}) => gridRow ? gridRow : 'auto'};
+  grid-row: ${({gridRow}) => gridRow ? 'span ' + gridRow : 'auto'};
 `;
 
 export const Image = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
+`;
+
+export const Element = styled.div`
+  background-color: ${({bgc}) => bgc ? bgc : '#fff'};
+`;
+
+export const Overlay = styled.div`
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
 `;
