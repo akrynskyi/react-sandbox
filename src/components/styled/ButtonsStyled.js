@@ -67,3 +67,15 @@ export const Button = styled.button`
     cursor: not-allowed;
   }
 `;
+
+export const ButtonIcon = styled.button`
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  border-radius: 4px;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: ${vars.textColor};
+`;

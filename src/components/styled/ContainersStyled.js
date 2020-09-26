@@ -3,6 +3,7 @@ import { navHeight } from './vars';
 
 export const Container = styled.div`
   width: 100%;
+  height: auto;
   margin: 0 auto;
   max-width: 1280px;
   padding: 0px 20px;
@@ -12,6 +13,15 @@ export const FlexContainer = styled(Container)`
   display: flex;
   align-items: center;
   justify-content: ${({justify}) => justify ? justify : 'flex-start'};
+`;
+
+export const ModalLayout = styled(FlexContainer)`
+  max-width: calc(100% - 200px);
+  justify-content: center;
+
+  @media(max-width: 900px) {
+    max-width: 100%;
+  }
 `;
 
 export const GridContainer = styled.div`

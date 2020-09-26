@@ -1,8 +1,32 @@
 import { GlobalStyles } from './GlobalStyles';
+import { Button, ButtonIcon } from './ButtonsStyled';
 import { Nav } from './NavStyled';
-import { Container, FlexContainer, GridContainer, LayoutContent, Row } from './ContainersStyled';
-import { Button } from './ButtonsStyled';
-import { Logo, Text, ImageCard, Image, Element, Overlay } from './SharedStyled';
+import { 
+  Container, 
+  FlexContainer, 
+  GridContainer, 
+  LayoutContent, 
+  Row, 
+  ModalLayout 
+} from './ContainersStyled';
+import { 
+  Logo, 
+  Text, 
+  ImageCard, 
+  Image,
+  Overlay, 
+  ModalImageCard,
+  ImageCardOverlay,
+  ImageDetails,
+} from './SharedStyled';
+import { 
+  ModalBackdrop, 
+  Modal, 
+  ModalContent, 
+  ModalHeader, 
+  ModalBody, 
+  ModalFooter 
+} from './ModalStyled';
 
 export {
   GlobalStyles,
@@ -16,7 +40,17 @@ export {
   LayoutContent,
   ImageCard,
   Image,
-  Element,
   Overlay,
   Row,
+  ModalBackdrop,
+  Modal,
+  ModalContent,
+  ModalLayout,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  ModalImageCard,
+  ImageCardOverlay,
+  ImageDetails,
+  ButtonIcon,
 };

@@ -5,11 +5,13 @@ const initialState = {
   loading: false,
   initialLoading: true,
   selectedImageIdx: null,
-  imagePopup: false,
+  imageModal: false,
   page: 1,
-  perPage: 5,
+  perPage: 20,
   error: null,
 };
+
+const getImageIdx = (images, imgId) => images.findIndex(({id}) => imgId === id);
 
 export const imagesReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -36,6 +38,20 @@ export const imagesReducer = (state = initialState, action) => {
         loading: false,
         initialLoading: false,
         error: action.payload,
+      };
+
+    case imagesActionTypes.IMAGE_MODAL_OPEN:
+      return {
+        ...state,
+        imageModal: true,
+        selectedImageIdx: getImageIdx(state.images, action.payload),
+      };
+
+    case imagesActionTypes.IMAGE_MODAL_CLOSE:
+      return {
+        ...state,
+        imageModal: false,
+        selectedImageIdx: null,
       };
 
     default:
