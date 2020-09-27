@@ -6,26 +6,29 @@ import {
   FlexContainer, 
   GridContainer, 
   LayoutContent, 
-  Row, 
-  ModalLayout 
+  Row,
 } from './ContainersStyled';
 import { 
   Logo, 
-  Text, 
-  ImageCard, 
-  Image,
-  Overlay, 
-  ModalImageCard,
-  ImageCardOverlay,
-  ImageDetails,
+  Text,
+  Overlay,
 } from './SharedStyled';
 import { 
-  ModalBackdrop, 
+  Image,
+  ImageCard,
+  ImageDetails,
+  ImageCardOverlay,
+} from './ImageStyled';
+import { 
+  ModalBackdrop,
   Modal, 
   ModalContent, 
   ModalHeader, 
   ModalBody, 
-  ModalFooter 
+  ModalFooter,
+  ModalControl,
+  ModalImageCard,
+  ModalLayout,
 } from './ModalStyled';
 
 export {
@@ -53,4 +56,5 @@ export {
   ImageCardOverlay,
   ImageDetails,
   ButtonIcon,
+  ModalControl,
 };

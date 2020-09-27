@@ -6,3 +6,5 @@ export const fetchImagesFailure = (payload) => ({ type: imagesActionTypes.FETCH_
 
 export const imageModalOpen = (payload) => ({ type: imagesActionTypes.IMAGE_MODAL_OPEN, payload });
 export const imageModalClose = () => ({ type: imagesActionTypes.IMAGE_MODAL_CLOSE });
+export const imageModalPrevImage = () => ({ type: imagesActionTypes.IMAGE_MODAL_PREV_IMAGE });
+export const imageModalNextImage = () => ({ type: imagesActionTypes.IMAGE_MODAL_NEXT_IMAGE });

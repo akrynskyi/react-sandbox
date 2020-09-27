@@ -15,15 +15,6 @@ export const FlexContainer = styled(Container)`
   justify-content: ${({justify}) => justify ? justify : 'flex-start'};
 `;
 
-export const ModalLayout = styled(FlexContainer)`
-  max-width: calc(100% - 200px);
-  justify-content: center;
-
-  @media(max-width: 900px) {
-    max-width: 100%;
-  }
-`;
-
 export const GridContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

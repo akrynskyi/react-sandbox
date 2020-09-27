@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { Overlay } from './SharedStyled';
+import { Overlay, ButtonIcon, FlexContainer, ImageCard } from '.';
 import * as vars from './vars';
 
 const shared = css`
@@ -14,11 +14,21 @@ export const ModalBackdrop = styled(Overlay)`
   background-color: rgba(0, 0, 0, .6);
 `;
 
+export const ModalLayout = styled(FlexContainer)`
+  position: relative;
+  justify-content: center;
+  max-width: calc(100% - 200px);
+
+  @media(max-width: 900px) {
+    max-width: 100%;
+  }
+`;
+
 export const Modal = styled.div`
   cursor: auto;
   height: 100%;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: 37px;
+  margin-bottom: 37px;
   width: calc(100% - 20px);
 `;
 
@@ -53,4 +63,20 @@ export const ModalBody = styled.div`
   flex-grow: 1;
   display: flex;
   justify-content: center;
+`;
+
+export const ModalControl = styled(ButtonIcon)`
+  position: absolute;
+  ${({left}) => left && 'left: -60px;'};
+  ${({right}) => right && 'right: -60px;'};
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, .25);
+`;
+
+export const ModalImageCard = styled(ImageCard)`
+  height: auto;
+  cursor: auto;
 `;

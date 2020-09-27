@@ -12,6 +12,8 @@ const initialState = {
 };
 
 const getImageIdx = (images, imgId) => images.findIndex(({id}) => imgId === id);
+const nextImage = (images, idx) => (idx < (images.length - 1) ? idx + 1 : idx);
+const prevImage = (idx) => (idx !== 0 ? idx - 1 : 0);
 
 export const imagesReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -52,6 +54,18 @@ export const imagesReducer = (state = initialState, action) => {
         ...state,
         imageModal: false,
         selectedImageIdx: null,
+      };
+
+    case imagesActionTypes.IMAGE_MODAL_PREV_IMAGE:
+      return {
+        ...state,
+        selectedImageIdx: prevImage(state.selectedImageIdx),
+      };
+
+    case imagesActionTypes.IMAGE_MODAL_NEXT_IMAGE:
+      return {
+        ...state,
+        selectedImageIdx: nextImage(state.images, state.selectedImageIdx),
       };
 
     default:

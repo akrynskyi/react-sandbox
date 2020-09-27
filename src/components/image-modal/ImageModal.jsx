@@ -14,7 +14,13 @@ import {
   ModalImageCard,
   Text,
   ButtonIcon,
+  ModalControl,
 } from '../styled';
+
+function calculateAspectRatioFit(srcWidth, srcHeight, maxWidth, maxHeight) {
+  const ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
+  return { w: srcWidth * ratio, h: srcHeight * ratio };
+}
 
 class ImageModal extends Component {
 
@@ -25,9 +31,23 @@ class ImageModal extends Component {
   }
 
   render() {
-    const { images, selectedImageIdx } = this.props;
-    const { description, urls, likes } = images[selectedImageIdx];
+    const { 
+      images, 
+      selectedImageIdx, 
+      imageModalPrevImage, 
+      imageModalNextImage 
+    } = this.props;
+    const { 
+      description, 
+      urls, 
+      likes, 
+      username,
+      width,
+      height
+    } = images[selectedImageIdx];
     const { regular } = urls;
+
+    const { w } = calculateAspectRatioFit(width, height, 1170, 850);
 
     return (
       <ModalBackdrop 
@@ -44,12 +64,19 @@ class ImageModal extends Component {
                 </ButtonIcon>
               </ModalHeader>
               <ModalBody>
-                <ModalImageCard>
-                  <Image src={regular} />
+                <ModalImageCard 
+                  style={{width: w}}
+                >
+                  <Image 
+                    src={regular} 
+                    alt={description || username}
+                  />
                 </ModalImageCard>
               </ModalBody>
               <ModalFooter>
-                <Text>{description}</Text>
+                <Text>
+                  {description}
+                </Text>
                 <Text>
                   <span 
                     role="img"
@@ -60,6 +87,22 @@ class ImageModal extends Component {
               </ModalFooter>
             </ModalContent>
           </Modal>
+          <ModalControl 
+            left
+            onClick={imageModalPrevImage}
+          >
+            <span className="material-icons">
+              arrow_back
+            </span>
+          </ModalControl>
+          <ModalControl 
+            right
+            onClick={imageModalNextImage}
+          >
+            <span className="material-icons">
+              arrow_forward
+            </span>
+          </ModalControl>
         </ModalLayout>
       </ModalBackdrop>
     );
@@ -67,6 +110,6 @@ class ImageModal extends Component {
 
 }
 
-const mapStateToProps = ({images}) => images;
+const mapStateToProps = ({ images }) => images;
 
 export default connect(mapStateToProps, imagesActions)(ImageModal);
