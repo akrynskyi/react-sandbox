@@ -1,5 +1,5 @@
 import { GlobalStyles } from './GlobalStyles';
-import { Button, ButtonIcon } from './ButtonsStyled';
+import { Button, ButtonIcon, ButtonLink } from './ButtonsStyled';
 import { Nav } from './NavStyled';
 import { 
   Container, 
@@ -57,4 +57,5 @@ export {
   ImageDetails,
   ButtonIcon,
   ModalControl,
+  ButtonLink,
 };

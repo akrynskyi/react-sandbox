@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import { backdropLight } from './vars';
 
-export const ImageCard = styled.div`
+export const ImageCard = styled(motion.div)`
   height: 100%;
   cursor: zoom-in;
   position: relative;

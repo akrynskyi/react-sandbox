@@ -1,7 +1,9 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { textColor } from './vars';
 
-export const Logo = styled.a`
+export const Logo = styled(Link)`
   font-size: 18px;
   font-weight: 500;
   color: ${textColor};
@@ -15,7 +17,7 @@ export const Text = styled.span`
   margin-right: ${({mr}) => mr ? mr : '5px'};
 `;
 
-export const Overlay = styled.div`
+export const Overlay = styled(motion.div)`
   position: fixed;
   height: 100vh;
   width: 100%;

@@ -22,6 +22,30 @@ function calculateAspectRatioFit(srcWidth, srcHeight, maxWidth, maxHeight) {
   return { w: srcWidth * ratio, h: srcHeight * ratio };
 }
 
+const backdropAnimation = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+  }
+};
+
+const modalLayoutAnimation = {
+  hidden: {
+    y: 200,
+    opacity: 0,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      delay: 0.25, 
+      type: 'tween',
+    }
+  }
+};
+
 class ImageModal extends Component {
 
   handleBackdropClick = ({ target, currentTarget }) => {
@@ -52,8 +76,13 @@ class ImageModal extends Component {
     return (
       <ModalBackdrop 
         onClick={this.handleBackdropClick}
+        variants={backdropAnimation}
+        initial="hidden"
+        animate="visible"
       >
-        <ModalLayout>
+        <ModalLayout
+          variants={modalLayoutAnimation}
+        >
           <Modal>
             <ModalContent>
               <ModalHeader>

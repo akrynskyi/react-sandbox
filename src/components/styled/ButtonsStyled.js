@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled, { css, keyframes } from 'styled-components';
 import * as vars from './vars';
 
@@ -50,7 +51,7 @@ const spinner = css`
   }
 `;
 
-export const Button = styled.button`
+const buttonBase = css`
   position: relative;
   cursor: pointer;
   font-size: 14px;
@@ -58,14 +59,18 @@ export const Button = styled.button`
   padding: 10px 8px;
   border-radius: 4px;
   color: ${vars.btnColor};
-  background-color: ${({shadow}) => shadow ? '#fff' : vars.btnBgc};
-  box-shadow: ${({shadow}) => shadow && vars.btnBoxShadow};
-  ${({load}) => load && spinner}
 
   &:disabled {
     background-color: #f1f3f4;
     cursor: not-allowed;
   }
+`;
+
+export const Button = styled.button`
+  ${buttonBase};
+  background-color: ${({shadow}) => shadow ? '#fff' : vars.btnBgc};
+  box-shadow: ${({shadow}) => shadow && vars.btnBoxShadow};
+  ${({load}) => load && spinner}
 `;
 
 export const ButtonIcon = styled.button`
@@ -78,4 +83,9 @@ export const ButtonIcon = styled.button`
   justify-content: center;
   background: transparent;
   color: ${vars.textColor};
+`;
+
+export const ButtonLink = styled(Link)`
+  ${buttonBase};
+  background-color: ${vars.btnBgc};
 `;

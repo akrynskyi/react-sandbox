@@ -1,22 +1,21 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { Switch, Route } from 'react-router-dom';
 
-import { Navbar } from './components/navbar';
-import { ImagesGrid } from './components/images-grid';
-import { ImageModal } from './components/image-modal';
 import { GlobalStyles } from './components/styled';
+import { MainGallery } from './pages';
+import { userLogin, userRegister } from './components/auth';
 
-function App({ imageModal }) {
+function App() {
   return (
     <>
       <GlobalStyles />
-      <Navbar />
-      <ImagesGrid />
-      {imageModal && <ImageModal />}
+      <Switch>
+        <Route path="/" component={MainGallery} exact />
+        <Route path="/login" component={userLogin} />
+        <Route path="/register" component={userRegister} />
+      </Switch>
     </>
   );
 }
 
-const mapStateToProps = ({ images }) => images;
-
-export default connect(mapStateToProps)(App);
+export default App;

@@ -14,6 +14,18 @@ import {
   ImageDetails,
 } from '../styled';
 
+const imageCardAnimation = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: (idx) => ({
+    opacity: 1,
+    transition: {
+      delay: idx * 0.02
+    }
+  }),
+};
+
 class ImagesGrid extends Component {
 
   componentDidMount() {
@@ -36,7 +48,7 @@ class ImagesGrid extends Component {
       imageModalOpen
     } = this.props;
 
-    const renderImage = (image) => {
+    const renderImage = (image, idx) => {
       const { 
         id, 
         urls, 
@@ -52,7 +64,11 @@ class ImagesGrid extends Component {
       return (
         <ImageCard 
           key={id}
+          custom={idx}
           gridRow={unit}
+          initial="hidden"
+          animate="visible"
+          variants={imageCardAnimation}
           onClick={this.handleImageCardClick(id, imageModalOpen)}
         > 
           <ImageCardOverlay>

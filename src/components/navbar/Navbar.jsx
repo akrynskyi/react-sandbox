@@ -3,7 +3,7 @@ import React from 'react';
 import { 
   Nav, 
   FlexContainer, 
-  Button, 
+  ButtonLink, 
   Logo,
   Text,
 } from '../styled';
@@ -14,13 +14,13 @@ export const Navbar = () => {
       <FlexContainer 
         justify="space-between"
       >
-        <Logo href="/">
+        <Logo to="/">
           <span className="material-icons">camera</span>
           <Text>mycamerashoot</Text>
         </Logo>
-        <Button>
+        <ButtonLink to="/login">
           Sign-in
-        </Button>
+        </ButtonLink>
       </FlexContainer>
     </Nav>
   );
