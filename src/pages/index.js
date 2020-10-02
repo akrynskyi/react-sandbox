@@ -1,3 +1,4 @@
-import { MainGallery } from './MainGallery';
+import { GalleryPage } from './GalleryPage';
+import { AuthPage } from './AuthPage';
 
-export { MainGallery };
+export { GalleryPage, AuthPage };

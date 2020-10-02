@@ -2,17 +2,15 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import { GlobalStyles } from './components/styled';
-import { MainGallery } from './pages';
-import { userLogin, userRegister } from './components/auth';
+import { GalleryPage, AuthPage } from './pages';
 
 function App() {
   return (
     <>
       <GlobalStyles />
       <Switch>
-        <Route path="/" component={MainGallery} exact />
-        <Route path="/login" component={userLogin} />
-        <Route path="/register" component={userRegister} />
+        <Route path="/" component={GalleryPage} exact />
+        <Route path="/:auth" component={AuthPage} />
       </Switch>
     </>
   );

@@ -11,3 +11,11 @@ export const Nav = styled.nav`
   background-color: #fff;
   box-shadow: 1px 1px 8px rgba(0,0,0,.1);
 `;
+
+export const AuthNav = styled.nav`
+  background-color: #DDDDDD;
+  height: 105px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+`;

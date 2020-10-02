@@ -1,7 +1,7 @@
-import { apiUrl } from './endpoints';
+import { photosEndpoint } from './endpoints';
 
 export const fetchImages = async (page, perPage) => {
-  const resp = await fetch(`${apiUrl}&page=${page}&per_page=${perPage}`);
+  const resp = await fetch(`${photosEndpoint}&page=${page}&per_page=${perPage}`);
   const data = await resp.json();
   
   return data.map((img) => ({

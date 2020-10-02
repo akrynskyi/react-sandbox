@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const userRegister = () => {
+export const UserRegister = () => {
   return (
     <p>register</p>
   );

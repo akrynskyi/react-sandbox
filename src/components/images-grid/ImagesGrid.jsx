@@ -29,7 +29,10 @@ const imageCardAnimation = {
 class ImagesGrid extends Component {
 
   componentDidMount() {
-    this.props.fetchImages();
+    document.title = 'mycamerashoot'
+    const { images, fetchImages } = this.props;
+    if (images.length) return;
+    fetchImages();
   }
 
   handleImageCardClick(id, imageModalOpen) {

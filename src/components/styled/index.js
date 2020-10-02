@@ -1,11 +1,12 @@
 import { GlobalStyles } from './GlobalStyles';
 import { Button, ButtonIcon, ButtonLink } from './ButtonsStyled';
-import { Nav } from './NavStyled';
+import { Nav, AuthNav } from './NavStyled';
 import { 
   Container, 
   FlexContainer, 
   GridContainer, 
-  LayoutContent, 
+  LayoutContent,
+  LayoutAuth,
   Row,
 } from './ContainersStyled';
 import { 
@@ -30,6 +31,16 @@ import {
   ModalImageCard,
   ModalLayout,
 } from './ModalStyled';
+import {
+  Form,
+  FormHeader,
+  FormBody,
+  FormFooter,
+  FormControl,
+  ControlLabel,
+  ControlErrors,
+  Input,
+} from './FormStyled';
 
 export {
   GlobalStyles,
@@ -58,4 +69,14 @@ export {
   ButtonIcon,
   ModalControl,
   ButtonLink,
+  Form,
+  FormHeader,
+  FormBody,
+  FormFooter,
+  FormControl,
+  ControlLabel,
+  ControlErrors,
+  Input,
+  AuthNav,
+  LayoutAuth
 };

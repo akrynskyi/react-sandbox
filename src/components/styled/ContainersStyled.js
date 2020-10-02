@@ -33,6 +33,12 @@ export const LayoutContent = styled(Container)`
   align-items: center;
 `;
 
+export const LayoutAuth = styled(FlexContainer)`
+  padding-top: 60px;
+  padding-bottom: 60px;
+  justify-content: center;
+`;
+
 export const Row = styled.div`
   padding-top: ${({pt}) => pt ? pt : '15px'};
   padding-bottom: ${({pb}) => pb ? pb : '15px'};

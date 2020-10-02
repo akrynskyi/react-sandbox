@@ -66,11 +66,17 @@ const buttonBase = css`
   }
 `;
 
+const formBtnStyles = css`
+  width: 100%;
+  min-height: 40px;
+`;
+
 export const Button = styled.button`
   ${buttonBase};
   background-color: ${({shadow}) => shadow ? '#fff' : vars.btnBgc};
   box-shadow: ${({shadow}) => shadow && vars.btnBoxShadow};
   ${({load}) => load && spinner}
+  ${({formBtn}) => formBtn && formBtnStyles}
 `;
 
 export const ButtonIcon = styled.button`

@@ -4,10 +4,12 @@ import createSagaMiddleware from 'redux-saga';
 import { all } from 'redux-saga/effects';
 
 import { imagesReducer } from './images-state';
+import { userReducer } from './user-state';
 import { imagesSaga } from './images-state/imagesSagas';
 
 const reducers = combineReducers({
   images: imagesReducer,
+  user: userReducer,
 });
 
 const sagaMiddleware = createSagaMiddleware();

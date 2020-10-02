@@ -1,7 +1,9 @@
-import { userLogin } from './userLogin';
-import { userRegister } from './userRegister';
+import UserLogin from './UserLogin';
+import { UserRegister } from './UserRegister';
+import { AuthNavbar } from './AuthNavbar';
 
 export {
-  userLogin,
-  userRegister,
+  UserLogin,
+  UserRegister,
+  AuthNavbar,
 };
