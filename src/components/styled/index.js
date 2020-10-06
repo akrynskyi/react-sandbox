@@ -13,6 +13,7 @@ import {
   Logo, 
   Text,
   Overlay,
+  Anchor,
 } from './SharedStyled';
 import { 
   Image,
@@ -78,5 +79,6 @@ export {
   ControlErrors,
   Input,
   AuthNav,
-  LayoutAuth
+  LayoutAuth,
+  Anchor
 };

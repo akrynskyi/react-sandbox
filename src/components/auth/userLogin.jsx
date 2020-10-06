@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { userActions } from '../../store/user-state';
 
 import { FormContainer, FormControl, resetForm } from '../form';
+import { Text, Anchor, Row } from '../styled';
 
 class UserLogin extends Component {
   
@@ -16,15 +19,12 @@ class UserLogin extends Component {
   }
 
   componentDidMount() {
-    document.title = 'Log in | mycamerashoot'
+    document.title = 'Log in | mycamerashoot';
   }
 
   onSubmit = (formValue) => {
-    this.setState({ formValue, formSubmitted: true });
-    console.log(formValue);
-
+    this.props.userSignIn(formValue);
     const resetedForm = resetForm(this.state);
-
     this.setState({...resetedForm});
   }
 
@@ -44,17 +44,27 @@ class UserLogin extends Component {
     } = this.state;
 
     return (
-      <FormContainer
-        formTitle={formTitle}
-        formValid={formValid}
-        formControls={formControls}
-        buttonTitle={formTitle}
-        onControlChange={this.onControlChange}
-        onFormSubmit={this.onSubmit}
-      />
+      <>
+        <FormContainer
+          formTitle={formTitle}
+          formValid={formValid}
+          formControls={formControls}
+          buttonTitle={formTitle}
+          onControlChange={this.onControlChange}
+          onFormSubmit={this.onSubmit}
+        />
+        <Row fontSize="14px">
+          <Text>Dont't have an account? </Text>
+          <Anchor to="/register">Sign up</Anchor>
+        </Row>
+      </>
     );
   }
 
 };
 
-export default UserLogin;
+const mapDispatchToProps = (dispatch) => ({
+  userSignIn: (credentials) => dispatch(userActions.userSignIn(credentials)),
+});
+
+export default connect(null, mapDispatchToProps)(UserLogin);

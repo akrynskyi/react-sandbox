@@ -75,13 +75,17 @@ class ImagesGrid extends Component {
           onClick={this.handleImageCardClick(id, imageModalOpen)}
         > 
           <ImageCardOverlay>
-            <ImageDetails>
-              <span 
-                role="img"
-                aria-label="likes"
-              >👍 </span>
-              {likes}
-            </ImageDetails>
+            { likes 
+              && (
+                <ImageDetails>
+                  <span 
+                    role="img"
+                    aria-label="likes"
+                  >👍 </span>
+                  {likes}
+                </ImageDetails>
+              )
+            }
           </ImageCardOverlay>
           <Image 
             src={small} 

@@ -106,13 +106,18 @@ class ImageModal extends Component {
                 <Text>
                   {description}
                 </Text>
-                <Text>
-                  <span 
-                    role="img"
-                    aria-label="likes"
-                  >👍 </span>
-                  {likes}
-                </Text>
+                {
+                  likes 
+                  && (
+                    <Text>
+                      <span 
+                        role="img"
+                        aria-label="likes"
+                      >👍 </span>
+                        {likes}
+                    </Text>
+                  )
+                }
               </ModalFooter>
             </ModalContent>
           </Modal>

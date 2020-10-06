@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { textColor } from './vars';
+import { textColor, btnColor } from './vars';
 
 export const Logo = styled(Link)`
   font-size: 18px;
@@ -28,4 +28,8 @@ export const Overlay = styled(motion.div)`
   align-items: center;
   justify-content: center;
   pointer-events: none;
+`;
+
+export const Anchor = styled(Link)`
+  color: ${btnColor};
 `;

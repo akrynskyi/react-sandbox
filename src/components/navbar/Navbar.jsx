@@ -19,7 +19,7 @@ export const Navbar = () => {
           <Text>mycamerashoot</Text>
         </Logo>
         <ButtonLink to="/login">
-          Sign-in
+          Log-in
         </ButtonLink>
       </FlexContainer>
     </Nav>

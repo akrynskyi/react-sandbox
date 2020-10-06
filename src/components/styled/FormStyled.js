@@ -51,8 +51,9 @@ export const ControlErrors = styled.div`
 
 export const Input = styled.input`
   width: 100%;
+  font-size: 14px;
   min-height: 40px;
-  padding: 10px 15px;
+  padding: 5px 10px;
   border-radius: 4px;
   border: ${({invalid}) => invalid ? '2px solid rgb(238, 81, 81)' : '1px solid #ccc'};
   box-shadow: ${({invalid}) => invalid ? '0 0 5px rgb(238, 81, 81)' : 'none'};

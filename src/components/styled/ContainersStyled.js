@@ -36,10 +36,12 @@ export const LayoutContent = styled(Container)`
 export const LayoutAuth = styled(FlexContainer)`
   padding-top: 60px;
   padding-bottom: 60px;
+  flex-direction: column;
   justify-content: center;
 `;
 
 export const Row = styled.div`
   padding-top: ${({pt}) => pt ? pt : '15px'};
   padding-bottom: ${({pb}) => pb ? pb : '15px'};
+  ${({fontSize}) => fontSize && `font-size: ${fontSize}`};
 `;

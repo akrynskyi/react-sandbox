@@ -11,8 +11,8 @@ function* requestImages() {
     const { page, perPage } = yield select(getParams);
     const data = yield call(fetchImages, page, perPage);
     yield put(fetchImagesSuccess(data));
-  } catch (error) {
-    yield put(fetchImagesFailure(error));
+  } catch ({ response }) {
+    yield put(fetchImagesFailure(response.errors));
   }
 }
 

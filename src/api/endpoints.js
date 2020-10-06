@@ -13,3 +13,7 @@ const baseAuthUrl = 'https://identitytoolkit.googleapis.com/v1/accounts';
 
 export const signUpEndpoint = `${baseAuthUrl}:signUp?key=${authKey}`;
 export const signInEndpoint = `${baseAuthUrl}:signInWithPassword?key=${authKey}`;
+
+// db
+
+export const baseDbUrl = 'https://mycamerashoot.firebaseio.com';
