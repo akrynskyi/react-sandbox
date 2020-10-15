@@ -1,15 +1,16 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Button } from '../styled';
 
-export const LoadMoreButton = ({ handle, loading }) => {
+export const LoadMoreButton = ({ handle, loading, scroll, images, perPage }) => {
   const buttonRef = useRef(null);
 
-  const onClick = () => {
-    handle();
-    setTimeout(() => {
-      buttonRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    }, 1000);
-  };
+  // useEffect(() => {
+  //   if (images.length <= perPage) return;
+
+  //   if (scroll) {
+  //     buttonRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  //   }
+  // }, [scroll, images, perPage]);
 
   return (
     <Button 
@@ -17,7 +18,7 @@ export const LoadMoreButton = ({ handle, loading }) => {
       load={loading}
       disabled={loading}
       ref={buttonRef}
-      onClick={onClick}
+      onClick={handle}
     >
       {loading ? 'Loading...' : 'Load more'}
     </Button>

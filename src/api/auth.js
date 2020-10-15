@@ -16,6 +16,11 @@ const authWithEmailAndPassword = async (endpoint, email, password) => {
   return data;
 };
 
+export const loadUser = async (uid) => {
+  const { data } = await axios.get(`${baseDbUrl}/users/${uid}.json`);
+  return data;
+};
+
 export const signUp = async (credentials) => {
   const { email, password, ...userData } = credentials;
   const { localId } = await authWithEmailAndPassword(signUpEndpoint, email, password);
@@ -26,6 +31,25 @@ export const signUp = async (credentials) => {
 export const signIn = async (credentials) => {
   const { email, password } = credentials;
   const { localId } = await authWithEmailAndPassword(signInEndpoint, email, password);
-  const { data } = await axios.get(`${baseDbUrl}/users/${localId}.json`);
+  const data  = await loadUser(localId);
   return data;
+};
+
+export const logout = () => {
+  localStorage.removeItem(AUTH_TOKEN_KEY);
+};
+
+export const getTokenFromStorage = () => {
+  const authData = localStorage.getItem(AUTH_TOKEN_KEY) 
+    ? JSON.parse(localStorage.getItem(AUTH_TOKEN_KEY)) 
+    : {};
+
+  if (!authData.token) return;
+
+  if (new Date().getTime() > new Date(authData.expDate).getTime()) {
+    logout();
+    return;
+  }
+
+  return authData;
 };

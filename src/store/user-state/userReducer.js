@@ -17,14 +17,16 @@ export const userReducer = (state = initialState, action) => {
       };
 
     case userActionTypes.USER_AUTH_SUCCESS:
+    case userActionTypes.USER_DATA_LOADED:
       return {
         loading: false,
         isAuthenticated: true,
         user: action.payload,
         error: null,
-      }
+      };
 
     case userActionTypes.USER_AUTH_FAILURE:
+    case userActionTypes.USER_DATA_LOAD_FAILURE:
       return {
         loading: false,
         isAuthenticated: false,

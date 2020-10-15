@@ -48,6 +48,8 @@ class ImagesGrid extends Component {
       fetchImages, 
       initialLoading, 
       loading,
+      scroll,
+      perPage,
       imageModalOpen
     } = this.props;
 
@@ -105,8 +107,11 @@ class ImagesGrid extends Component {
           {
             !initialLoading 
             && <LoadMoreButton
-                handle={fetchImages}
+                scroll={scroll}
                 loading={loading}
+                handle={fetchImages}
+                perPage={perPage}
+                images={images}
               />
           }
         </Row>

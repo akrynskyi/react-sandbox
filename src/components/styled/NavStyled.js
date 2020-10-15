@@ -10,10 +10,12 @@ export const Nav = styled.nav`
   height: ${navHeight};
   background-color: #fff;
   box-shadow: 1px 1px 8px rgba(0,0,0,.1);
+  display: flex;
+  align-items: center;
 `;
 
 export const AuthNav = styled.nav`
-  background-color: #DDDDDD;
+  background-color: #dddddd;
   height: 105px;
   width: 100%;
   display: flex;

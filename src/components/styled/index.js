@@ -14,6 +14,8 @@ import {
   Text,
   Overlay,
   Anchor,
+  UserNav,
+  Avatar
 } from './SharedStyled';
 import { 
   Image,
@@ -80,5 +82,7 @@ export {
   Input,
   AuthNav,
   LayoutAuth,
-  Anchor
+  Anchor,
+  UserNav,
+  Avatar
 };

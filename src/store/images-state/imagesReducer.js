@@ -9,6 +9,7 @@ const initialState = {
   page: 1,
   perPage: 20,
   error: null,
+  scroll: false,
 };
 
 const getImageIdx = (images, imgId) => images.findIndex(({id}) => imgId === id);
@@ -21,6 +22,7 @@ export const imagesReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: true,
+        scroll: false,
         initialLoading: !state.images.length
       };
 
@@ -29,6 +31,7 @@ export const imagesReducer = (state = initialState, action) => {
         ...state,
         images: [...state.images, ...action.payload],
         loading: false,
+        scroll: true,
         initialLoading: false,
         page: state.page + 1
       };
@@ -38,6 +41,7 @@ export const imagesReducer = (state = initialState, action) => {
         ...state,
         images: [],
         loading: false,
+        scroll: false,
         initialLoading: false,
         error: action.payload,
       };
