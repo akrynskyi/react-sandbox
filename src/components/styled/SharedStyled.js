@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { textColor, btnColor } from './vars';
+import { textColor, btnColor, dropdownBoxShadow } from './vars';
 
 export const Logo = styled(Link)`
   font-size: 18px;
@@ -41,6 +41,7 @@ export const Anchor = styled(Link)`
 `;
 
 export const UserNav = styled.div`
+  position: relative;
   width: 40px;
   height: 40px;
   display: flex;
@@ -51,6 +52,10 @@ export const UserNav = styled.div`
   transition: background .2s linear;
 
   &:hover {
+    background-color: rgba(60,64,67,.08);
+  }
+
+  &:focus {
     background-color: rgba(60,64,67,.08);
   }
 `;
@@ -68,4 +73,30 @@ export const Avatar = styled.div`
   justify-content: center;
   background-color: #e0e0e0;
   border: 1px solid #ccc;
+  user-select: none;
+`;
+
+export const Dropdown = styled(motion.div)`
+  overflow: hidden;
+  position: absolute;
+  width: 120px;
+  right: 0;
+  top: 115%;
+  z-index: 10;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: ${dropdownBoxShadow};
+  transform-origin: top right;
+`;
+
+export const DropdownItem = styled(Link)`
+  display: block;
+  font-size: 16px;
+  padding: 12px 15px;
+  background: transparent;
+  transition: background .2s linear;
+
+  &:hover {
+    background: #e0e0e0;
+  }
 `;

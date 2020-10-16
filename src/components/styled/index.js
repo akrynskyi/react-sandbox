@@ -15,7 +15,9 @@ import {
   Overlay,
   Anchor,
   UserNav,
-  Avatar
+  Avatar,
+  Dropdown,
+  DropdownItem
 } from './SharedStyled';
 import { 
   Image,
@@ -84,5 +86,7 @@ export {
   LayoutAuth,
   Anchor,
   UserNav,
-  Avatar
+  Avatar,
+  Dropdown,
+  DropdownItem,
 };

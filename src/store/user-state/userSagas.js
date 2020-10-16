@@ -1,7 +1,7 @@
 import { takeEvery, call, put } from 'redux-saga/effects';
 import * as userActionTypes from './userActionTypes';
 import { userAuthSuccess, userAuthFailure, userDataLoaded, userDataLoadFailure } from './userActions';
-import { signUp, signIn, getTokenFromStorage, loadUser } from '../../api';
+import { signUp, signIn, getTokenFromStorage, loadUser, logout } from '../../api';
 import { history } from '../../index';
 
 function* register({ payload }) {
@@ -40,8 +40,13 @@ function* loadUserData() {
   }
 }
 
+function* logoutUser() {
+  yield call(logout);
+}
+
 export function* userSaga() {
   yield takeEvery(userActionTypes.USER_SIGN_UP, register);
   yield takeEvery(userActionTypes.USER_SIGN_IN, login);
   yield takeEvery(userActionTypes.USER_DATA_LOAD, loadUserData);
+  yield takeEvery(userActionTypes.USER_LOG_OUT, logoutUser);
 }

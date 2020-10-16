@@ -1,5 +1,6 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { userActions } from '../../store/user-state';
 
 import { 
   Nav, 
@@ -8,12 +9,29 @@ import {
   Logo,
   Text,
   UserNav,
-  Avatar
+  Avatar,
+  Dropdown,
+  DropdownItem
 } from '../styled';
+
+const dropdownAmimation = {
+  hidden: {
+    transform: 'scale(0)',
+  },
+  visible: {
+    transform: 'scale(1)',
+  }
+};
 
 export const Navbar = () => {
   const isAuthenticated = useSelector(({ user }) => user.isAuthenticated);
   const user = useSelector(({ user }) => user.user);
+  const dispatch = useDispatch();
+
+  const [dropdownVisidle, setDropdownVisible] = useState(false);
+  const toggleDropdown = () => setDropdownVisible((state) => !state);
+
+  const logout = () => dispatch(userActions.userLogOut());
 
   return (
     <Nav>
@@ -28,9 +46,29 @@ export const Navbar = () => {
           isAuthenticated
           ? (
             <UserNav>
-              <Avatar>
-                {user.username.charAt(0)}
+              <Avatar onClick={toggleDropdown}>
+                {user.username.charAt(0).toUpperCase()}
               </Avatar>
+              {
+                dropdownVisidle
+                && (
+                  <Dropdown
+                    variants={dropdownAmimation}
+                    initial="hidden"
+                    animate="visible"
+                  >
+                    <DropdownItem to="/">
+                      Profile
+                    </DropdownItem>
+                    <DropdownItem 
+                      to="/"
+                      onClick={logout}
+                    >
+                      Logout
+                    </DropdownItem>
+                  </Dropdown>
+                )
+              }
             </UserNav>
           )
           : (

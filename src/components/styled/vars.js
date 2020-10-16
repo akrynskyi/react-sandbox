@@ -6,4 +6,5 @@ export const navHeight = '55px';
 export const cardBoxShadow = btnBoxShadow;
 export const cardBorderRadius = '8px';
 export const backdropLight = 'rgba(0, 0, 0, .25)';
-export const formWidth = '420px'; 
+export const formWidth = '420px';
+export const dropdownBoxShadow = '0 2px 20px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2)';
